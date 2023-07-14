@@ -3,6 +3,8 @@ from world_gen import world
 from weather import geocoder
 from weather import timezone_lookup as tz
 from weather import soil_lookup
+
+
 class Handler:
 
     def __init__(self):
@@ -22,8 +24,12 @@ class Handler:
             try:
                 self.lat, self.lon = self.get_lat_lon(input())
                 self.get_weather(self.lat, self.lon)
-                self.timezone_offset = tz.get_utc_offset(self.lat,self.lon)
+                self.timezone_offset = tz.get_utc_offset(self.lat, self.lon)
                 soil_lookup.query(self.lat, self.lon)
+                # TODO: match tz offset with local weather for valid times
+                # TODO: compile weather and soil data into useable dict
+                # TODO: compile plant database (postgres?)
+                # TODO: merge weather and soil data into plant database (or join via soil and weather)
             except SyntaxError:
                 print('Invalid city!')
                 continue

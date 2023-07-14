@@ -1,17 +1,10 @@
 import requests
 import json
 
-url = 'https://geocode.maps.co/search?'#street=555+5th+Ave&city=New+York&state=NY&postalcode=10017&country=US'
+url = 'https://geocode.maps.co/search?'
 
 
 def query(q):
-    # params = {
-    #     'street': street.replace(' ', '+'),
-    #     'city': city.replace(' ', '+'),
-    #     'state': state.replace(' ', '+'),
-    #     'postalcode': postalcode.replace(' ', '+'),
-    #     'country': country.replace(' ', '+'),
-    # }
     q = q.replace(',', '')#.replace(' ', '+')
     params = {
         'q' : q
