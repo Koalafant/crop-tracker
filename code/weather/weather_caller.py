@@ -15,8 +15,9 @@ def query(lat, lon):
 
     request = requests.get(url, params)
     data = json.loads(request.text)
-
+    ret = {}
     # parse data later and return useful stuff
     for key in data['hourly']:
         print(key)
         print(data['hourly'][key])
+    return data
